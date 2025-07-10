@@ -16,5 +16,5 @@ try:
 except KeyboardInterrupt:
     print("\nUkonceno uzivatelem !!!!")
 except Exception as e:
-    print(f"Error pico : {e}")
+    print(f"Error: {e}")
 
