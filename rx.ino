@@ -1,6 +1,5 @@
 #include <SPI.h>
 #include <LoRa.h>
-
 #define LORA_SCK 18
 #define LORA_MISO 19
 #define LORA_MOSI 23
@@ -76,37 +75,37 @@ int packetSize = LoRa.parsePacket();
 }
 
 void print_packet(packet_t packet) {
-  Serial.print("Temperature C (BME, MPU): ");
+  Serial.print("temperature:");
   Serial.print((float)(packet.temp_cx100)/100);
-  Serial.print(",");
-  Serial.print((float)(packet.mpu_temp_cx100)/100);
   Serial.println();
 3
-  Serial.print("Humidity %: ");
+  Serial.print("humidity:");
   Serial.println((float)(packet.humidity_px10)/10);
 
-  Serial.print("Pressure hPa: ");
+  Serial.print("pressure:");
   Serial.println((float)(packet.pressure_hPax10)/10);
 
-  Serial.print("Acceleration (x, y, z): ");
+  Serial.print("acceleration:");
   Serial.print((float)(packet.acce_x)/1000);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.print((float)(packet.acce_y)/1000);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.println((float)(packet.acce_z)/1000);
 
-  Serial.print("Gyroscope (x, y, z): ");
+  Serial.print("gyroscope:");
   Serial.print((float)(packet.gyro_x)/100);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.print((float)(packet.gyro_y)/100);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.println((float)(packet.gyro_z)/100);
 
+
+// GPSKU MUSIM JESTE DOPSAT A OVERIT!!!!
   Serial.print("GPS (LAT, LON, ALT): ");
   Serial.print((float)(packet.gps_lat_microdeg)/1e6);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.print((float)(packet.gps_lon_microdeg)/1e6);
-  Serial.print(", ");
+  Serial.print(",");
   Serial.println((float)(packet.gps_alt_cm)/100);
 }
 
